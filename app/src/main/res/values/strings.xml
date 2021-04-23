@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WeatherAppp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="API_KEY">015a0e163e2cd6e99253a34375bf29b7</string>
+    <string-array name="cities">
+        <item>use current location</item>
+        <item>bangalore</item>
+        <item>chennai</item>
+        <item>pune</item>
+        <item>greenwich</item>
+        <item>sochi</item>
+        ...
+    </string-array>
+</resources>
