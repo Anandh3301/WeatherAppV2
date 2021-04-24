@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test_nav"
+    app:startDestination="@id/transitionFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.capgemini.weatherappp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/cityPicker"
+        android:name="com.capgemini.weatherappp.CityPicker"
+        android:label="fragment_city_picker"
+        tools:layout="@layout/fragment_city_picker" >
+        <action
+            android:id="@+id/action_cityPicker_to_dayFragment"
+            app:destination="@id/dayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayFragment"
+        android:name="com.capgemini.weatherappp.DayFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" >
+        <action
+            android:id="@+id/action_dayFragment_to_popup"
+            app:destination="@id/popup" />
+    </fragment>
+    <fragment
+        android:id="@+id/popup"
+        android:name="com.capgemini.weatherappp.Popup"
+        android:label="fragment_popup"
+        tools:layout="@layout/fragment_popup" />
+    <fragment
+        android:id="@+id/transitionFragment"
+        android:name="com.capgemini.weatherappp.TransitionFragment"
+        android:label="fragment_transition"
+        tools:layout="@layout/fragment_transition" >
+        <action
+            android:id="@+id/action_transitionFragment_to_cityPicker"
+            app:destination="@id/cityPicker" />
+    </fragment>
+
+</navigation>
