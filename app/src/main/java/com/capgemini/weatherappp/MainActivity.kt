@@ -33,8 +33,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+}
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+    /*    fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         Log.d("succ", "after call")
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -114,7 +116,7 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-    }
-}
+    }*/
+
 
 
