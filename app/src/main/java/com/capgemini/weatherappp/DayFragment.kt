@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.capgemini.weatherappp.OpenWeatherAPI7Days.Daily
 import com.capgemini.weatherappp.OpenWeatherAPI7Days.SSevenDays
 import com.capgemini.weatherappp.OpenWeatherApi.OWInterface
@@ -126,10 +127,11 @@ class DayFragment : Fragment()
                     bundle.putString("day",it)
                     Log.d("lambda",it)
                     popfrag.arguments=bundle
-                    activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.parentL,popfrag)
+                /*    activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.parentL,popfrag)
 
                         ?.addToBackStack(null)
-                        ?.commit()
+                        ?.commit()*/
+                    findNavController().navigate(R.id.action_dayFragment_to_popup,bundle)
                 }
 
             }

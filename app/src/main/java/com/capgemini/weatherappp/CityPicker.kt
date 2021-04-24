@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_city_picker.*
@@ -37,8 +38,13 @@ class CityPicker : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            askForPermission()
 
         }
+    }
+
+    private fun askForPermission() {
+
     }
 
     override fun onCreateView(
@@ -66,10 +72,10 @@ class CityPicker : Fragment() {
                     fusedLocationClient = LocationServices.getFusedLocationProviderClient(main)
 
                     if (ActivityCompat.checkSelfPermission(
-                            context!!,
+                            requireContext(),
                             Manifest.permission.ACCESS_FINE_LOCATION
                         ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                            context!!,
+                            requireContext(),
                             Manifest.permission.ACCESS_COARSE_LOCATION
                         ) != PackageManager.PERMISSION_GRANTED
                     ) {
@@ -125,10 +131,11 @@ class CityPicker : Fragment() {
     fun sendIt(bundle : Bundle)
     {   val listfrag = DayFragment()
         listfrag.arguments=bundle
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.parentL,listfrag)
+      /*  activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.parentL,listfrag)
 
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
+        findNavController().navigate(R.id.action_cityPicker_to_dayFragment,bundle)
     }
 
 
